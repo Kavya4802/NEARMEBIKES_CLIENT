@@ -1,0 +1,83 @@
+* {
+    font-family: "Muli", sans-serif;
+}
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #002147;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    color: #002147;
+    white-space: nowrap;
+    padding: 0.5rem 0 2rem 0;
+}
+
+@media screen and (max-width: 555px) {
+    .hero-text h1 {
+        font-size: 2rem;
+        padding: 10px 20px;
+    }
+
+    .hero-text p {
+        font-size: 1.1rem;
+        padding: 0 0 2rem 0;
+    }
+}
+
+h4 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #002147;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #002147;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    color: #002147;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+a:hover {
+    transform: scale(1.05);
+}
