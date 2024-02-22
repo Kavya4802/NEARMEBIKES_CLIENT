@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import DropDown from "../Components/DropDown";
 import Menuitems from "../Constants/MenuItems";
-import "Components.css";
+import "./Components.css";
 
 function Navbar({ userc }) {
     const [icon, setIcon] = useState(false);

@@ -1,7 +1,7 @@
 import React from "react";
-import Hero from "./Hero";
+import Hero from "../Home/Hero";
 import AboutUs from "./AboutUs";
-import Navbar from "./Navbar";
+import Navbar from "../../Components/NavBar";
 function About() {
     return (
         <div>

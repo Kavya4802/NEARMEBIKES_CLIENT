@@ -232,6 +232,7 @@ li {
 
 
 
+
 .footer {
     background-color: black;
 
@@ -323,3 +324,42 @@ li {
         width: 50%;
     }
 }
+
+.App {
+    color: var(--black);
+    background-color: white;
+    margin: 0;
+    overflow: hidden;
+    font-family: "Muli", sans-serif;
+    min-height: 100vh;
+    /* Set minimum height to 100% of viewport height */
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    /* Header, main content, footer */
+
+}
+
+.orders-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.no-orders-message {
+    font-style: italic;
+}
+
+.orders-list {
+    list-style: none;
+    padding: 0;
+}
+
+.order-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Customize the styles as needed */

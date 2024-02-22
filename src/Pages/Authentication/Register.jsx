@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Row, Col, Form, Input } from 'antd';
 import { Link } from 'react-router-dom';
-import "./register.css";
-import Navbar from "./Navbar";
+import "./Authentication.css";
+import NavBar from '../../Components/NavBar';
 import { useParams } from "react-router-dom";
-import Footer from "./Footer";
-import { storeInSession } from "../Session";
+import Footer from "../../Components/Footer";
+import { Navbar } from "react-bootstrap";
+// import { storeInSession } from "../Session";
 
 
 function Register() {
@@ -41,7 +42,7 @@ function Register() {
                 if (!res.ok) {
                     throw new Error(`HTTP error! Status: ${res.status}`);
                 }
-                storeInSession("user", JSON.stringify(res));
+                // storeInSession("user", JSON.stringify(res));
                 return res.json();
             })
             .then((data) => {
@@ -63,7 +64,7 @@ function Register() {
 
     return (
         <>
-            <Navbar />
+            <NavBar />
             <div className="signup">
                 <Row gutter={16}>
                     <Col lg={16} style={{ position: "relative" }}>

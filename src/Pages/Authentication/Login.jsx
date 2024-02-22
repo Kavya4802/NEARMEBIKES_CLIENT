@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Row, Col, Form, Input } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router';
-import "./Loginstyles.css";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from '../../Components/NavBar';
+import Footer from '../../Components/Footer';
 import { useParams } from "react-router-dom";
-import { storeInSession } from "../Session";
+import "./Authentication.css";
+// import { storeInSession } from "../Session";
 function Login() {
     const { id } = useParams();
     const [email, setEmail] = useState("");
@@ -35,7 +35,7 @@ function Login() {
                 console.log(data, "userRegister");
                 if (data.status === "ok") {
                     alert("Login successful");
-                    storeInSession("user", JSON.stringify(data));
+                    // storeInSession("user", JSON.stringify(data));
                     if (data.role === "admin") {
                         window.localStorage.setItem("token", data.data);
                         navigate('/Dashboard');
