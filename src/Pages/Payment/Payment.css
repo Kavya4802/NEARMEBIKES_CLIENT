@@ -1,0 +1,56 @@
+/* Paymentstyles.css */
+
+.payment-page {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .summary-card,
+  .important-card {
+    width: 48%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    margin-top: 50px;
+  }
+  
+  .bike-details-content {
+    text-align: center;
+  }
+  .date-card {
+    /* ... your existing styles ... */
+    position: relative;
+    z-index: 1; /* Add this line to set the z-index */
+  }
+  
+  .bike-details-content img {
+    max-width: 30%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+  }
+  .date-card label {
+    font-size: 16px;
+    color: #333; /* Change color to your preference */
+    margin-bottom: 10px;
+  }
+  
+  .date-card .form-input {
+    margin-bottom: 15px;
+  }
+  
+  .date-card input {
+    width: 80%; /* Decreased the width of the input field */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc; /* Change color to your preference */
+    border-radius: 5px;
+  }
+  
+  .date-card input:focus {
+    outline: none;
+    border-color: #3498db; /* Change color to your preference */
+  }
+  
+  
+  

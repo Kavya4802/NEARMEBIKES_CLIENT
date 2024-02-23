@@ -1,0 +1,14 @@
+/* Invoice.css */
+
+.invoice-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .user-details, .bike-details, .payment-details {
+    margin-bottom: 20px;
+  }
+  
+  
