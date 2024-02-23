@@ -1,0 +1,44 @@
+.viewusers-container {
+    padding: 20px;
+  }
+  
+  .viewusers-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+  
+  .viewusers-table th,
+  .viewusers-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .viewusers-table th {
+    background-color: #343a40;
+    color: #fff;
+  }
+  
+  @media (max-width: 768px) {
+    .viewusers-table {
+      width: 100%;
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  
+    .viewusers-table th,
+    .viewusers-table td {
+      display: inline-block;
+      padding: 8px;
+      min-width: 150px;
+      font-size: 30px;
+    }
+  }
+  .viewusers-table button[disabled] {
+    background-color: grey;
+    cursor: not-allowed;
+  }
+  

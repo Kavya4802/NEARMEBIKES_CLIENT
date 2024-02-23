@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar from "../../Components/NavBar";
+import Navbar from "../../Components/NavBar/NavBar";
 import Cards from "../../Components/Cards";
 // import Hero from "./Hero";
 import BotPress from "../../Utilities/BotPress";
 import "react-datetime/css/react-datetime.css";
-import Footer from "../../Components/Footer";
+import Footer from "../../Components/Footer/Footer";
 import { useState, useEffect } from "react";
 import "./Home.css";
 

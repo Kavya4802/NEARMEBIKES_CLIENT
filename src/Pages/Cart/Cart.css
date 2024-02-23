@@ -1,0 +1,57 @@
+/* Cart.css */
+
+.cart-container {
+    padding: 20px;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .image-container {
+    width: 100px; /* Adjust as needed */
+    margin-right: 10px;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .details-container {
+    flex-grow: 1;
+  }
+  
+  .bike-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .quantity-button {
+    background-color: #007bff; /* Blue color, you can change it to your preferred color */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .quantity-display {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px;
+  }
+  .delete-button {
+    background-color: #ff3333; /* Red background color */
+    color: #fff; /* White text color */
+    padding: 8px 16px; /* Padding around the button content */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+    font-size: 14px; /* Font size */
+  }
+  
+  .delete-button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+  }
