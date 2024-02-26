@@ -6,6 +6,8 @@ import BotPress from "../../Utilities/BotPress";
 import "react-datetime/css/react-datetime.css";
 import Footer from "../../Components/Footer/Footer";
 import { useState, useEffect } from "react";
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
 import "./Home.css";
 
 // import Cart from "./Cart";
@@ -37,16 +39,49 @@ function Home() {
     return (
         <>
             <Navbar user={user} />
-            <div className="hero">
+            <AwesomeSlider className="hero">
+                <div>
+                    <img
+                        src="https://images.unsplash.com/photo-1609778269131-b86133da88bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MH
+                xwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                        alt="bike-img"
+                        className="slider-img"
+                    ></img>
+                </div>
+                <div>
+                    <img
+                        src="https://images.unsplash.com/photo-1609778269131-b86133da88bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MH
+                xwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                        alt="bike-img"
+                        className="slider-img"
+                    ></img>
+                </div>
+                <div>
+                    <img
+                        src="https://images.unsplash.com/photo-1609778269131-b86133da88bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MH
+                xwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                        alt="bike-img"
+                        className="slider-img"
+                    ></img>
+                </div>
+                <div>
+                    <img
+                        src="https://images.unsplash.com/photo-1609778269131-b86133da88bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MH
+                xwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                        alt="bike-img"
+                        className="slider-img"
+                    ></img>
+                </div>
+            </AwesomeSlider>
+            {/* <div className="hero">
                 <img
                     src="https://images.unsplash.com/photo-1609778269131-b86133da88bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MH
             xwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
                     alt="bike-img"
                 ></img>
 
-            </div>
+            </div> */}
             <Cards user={user} />
-            {/* <BotPress></BotPress> */}
             <Footer></Footer>
         </>
     );

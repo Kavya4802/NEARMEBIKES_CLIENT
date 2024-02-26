@@ -86,7 +86,7 @@ function App() {
         <Route path="/AppRoutes/*" element={<AppRoutes />} />
         <Route path="/bikeupdate/:bikeId" element={<Wrapper><Updates /></Wrapper>} />
         <Route path="/orders/:email" element={<Wrapper><Orders /></Wrapper>} />
-      </Routes>``
+      </Routes>
     </Router>
   );
 }

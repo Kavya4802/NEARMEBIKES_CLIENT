@@ -8,13 +8,29 @@
     position: relative;
     margin-bottom: 40px;
 }
-
+@media (max-width:768px) {
+    .hero div{
+        width: 100%;
+        height: fit-content!important;
+        position: relative; 
+    }
+    .hero {
+        width: 100%;
+        height: fit-content!important;
+        position: relative;
+        margin-bottom: 40px;
+    }
+    .awssld__container{
+        display: inline;
+    }
+}
 .hero img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
 }
-
+.awssld__bullets{
+    display: none!important ;
+}
 .hero-text {
     position: absolute;
     top: 50%;
@@ -156,4 +172,10 @@ img {
         border-radius: 6px;
         font-size: 1rem;
     }
+}
+.slider-img{
+    object-fit: contain!important;
+}
+.hero div:nth-child(1){
+    width: 100%;
 }

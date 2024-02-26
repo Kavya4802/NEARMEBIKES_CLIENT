@@ -20,7 +20,7 @@
 
 .card-img {
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
@@ -35,11 +35,6 @@
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
-}
-
-.book-now-button,
-.add-to-cart {
-    size: 50px;
 }
 
 .currency-symbol {
@@ -277,3 +272,30 @@
     font-size: 16px;
   }
   
+
+.card-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100dvw;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.card{
+  padding: 2%;
+  width: 30dvw;
+  transition: all 0.3s ease;
+}
+.book-now-button .add-to-cart{
+  padding: 1%!important;
+  width: fit-content;
+  max-width: 5dvw;
+  font-size: small;
+}
+@media (max-width:768px) {
+  .card{
+    padding: 2%;
+    width: 90dvw;
+    transition: all 0.3s ease;
+  }
+}

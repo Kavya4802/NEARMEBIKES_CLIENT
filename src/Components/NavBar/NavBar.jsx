@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import DropDown from "../DropDown";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { RxCross1 } from "react-icons/rx";
+
 import Menuitems from "../../Constants/MenuItems";
 import "./NavBar.css";
+import { IoCart } from "react-icons/io5";
 
 function Navbar({ userc }) {
     const [icon, setIcon] = useState(false);
@@ -79,24 +83,25 @@ function Navbar({ userc }) {
           alt="Near Me Icon"
          
         /> */}
-                <h3>NEARME BIKES</h3>
+                <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:'10px'}}>
+                    <img
+                        className="rectangle"
+                        alt="Rectangle"
+                        src="https://cdn.animaapp.com/projects/65bbc2f61fb5420bd6884d53/releases/65bbcbfb1d18552ae4faf221/img/rectangle-2.png"
+                    />
+                    <h3 style={{fontWeight:'bolder',fontSize:'1.5em'}}>NEARME BIKES</h3>
+                </div>
                 <div className="menu-icons">
                     {icon ? (
-                        <i
-                            onClick={() => {
+                        <RxCross1 className="hamburger-icon" onClick={() => {
                                 setIcon(false);
                                 setHide("menu");
-                            }}
-                            className="fas fa-times"
-                        ></i>
+                            }}/>
                     ) : (
-                        <i
-                            onClick={() => {
+                        <RxHamburgerMenu className="hamburger-icon" onClick={() => {
                                 setIcon(true);
                                 setHide("menu active");
-                            }}
-                            className="fas fa-bars"
-                        ></i>
+                            }} />
                     )}
                 </div>
 
@@ -104,27 +109,28 @@ function Navbar({ userc }) {
                     {/* Menu items */}
                     {Menuitems.map((items, index) => (
                         <li key={index}>
-                            {items.title === "Signup" && user ? (
-                                <span
-                                    className="nav-links"
-                                    onClick={() => setOpenProfile((prev) => !prev)}
-                                    style={{ cursor: "pointer" }}
-                                >
-                                    Hi, {user.name}
-                                </span>
-                            ) : (
-                                <Link className={items.className} to={items.route}>
-                                    <i className={items.icon}></i>
-                                    {items.title}
-                                </Link>
-                            )}
-                        </li>
+        {console.log(items.title)} {/* Log the title */}
+        {items.title.trim() === "Signup" && user ? (
+            <span
+                className="nav-links"
+                onClick={() => setOpenProfile((prev) => !prev)}
+                style={{ cursor: "pointer" }}
+            >
+                Hi, {user.name}
+            </span>
+        ) : (
+            <Link className={items.className} to={items.route}>
+                <i className={items.icon}></i>
+                {items.title}
+            </Link>
+        )}
+    </li>
                     ))}
                     {/* Cart icon */}
                     <li>
                         <Link to="/cart" style={{ textDecoration: "none" }}>
-                            <div>
-                                <i className="fas fa-shopping-cart"></i>
+                            <div style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
+                            <IoCart className="cart-logo"/>
                                 <span className="cart-badge">{cartCount}</span>
                             </div>
                         </Link>

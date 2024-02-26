@@ -95,10 +95,10 @@ function Cards({ user }) {
 
     return (
         <>
-            <Row md={3} xs={1}>
+            <Row md={3} xs={1} className="card-container">
                 {bikes.map((bike) => (
                     <Col md={3} key={bike._id} >
-                        <Card className={`card ${!bike.returned ? "not-returned" : ""}`}>
+                        <Card className={`card ${!bike.returned ? "not-returned" : ""} card`}>
                             <Card.Img
                                 variant="top"
                                 src={`http://localhost:5000/images/${bike.picture}`}
@@ -107,10 +107,10 @@ function Cards({ user }) {
                             />
                             <Card.Body>
                                 <div className="card-header">
-                                    <Card.Title style={{ fontFamily: "Muli,san-serif" }}>{bike.brand}</Card.Title>
+                                    <Card.Title style={{ fontFamily: "Muli,san-serif" }}><h4 style={{textTransform:"capitalize"}}>{bike.brand}</h4></Card.Title>
                                     <Card.Text className="card-price">
                                         <span className="currency-symbol">₹</span>
-                                        {bike.price}
+                                        <h4 style={{display:"inline"}}>{bike.price}</h4>
                                     </Card.Text>
                                 </div>
                                 <div className="card-buttons">

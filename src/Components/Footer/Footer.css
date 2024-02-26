@@ -1,76 +1,47 @@
-.footer {
-    background-color: black;
- 
-   color: white;
-   padding: 4rem 8rem; /* Increased padding for better spacing */
-   margin-bottom: 0;
-   margin-top: 20px; /* Add top margin to create space between cards and footer */
-   padding: 20px;
-   width: 100%;
+.social-logo{
+   width: 3em;
 }
+.footer-container{
+   background-color: black;
+   color: #FF8400;
+   height: -moz-fit-content;
+   height: fit-content;
+   padding: 2%;
+   display: flex;
+   width: 100dvw;
+   align-items: center;
+   justify-content: space-around;
+   flex-wrap: wrap;
 
-.top {
+}
+.social-media{
+   text-align: center;
+   width: fit-content;
    display: flex;
    align-items: center;
-   text-align: start;
-   justify-content: space-between;
-   flex-wrap: wrap;
-   margin-bottom: 1.5rem; /* Added margin for better separation */
+   justify-content: space-around;
 }
-
-.top i {
-   color: white;
-   font-size: 2rem; /* Slightly reduced font size */
-   margin-left: 1.5rem; /* Adjusted margin */
+.social-media a{
+   margin: 1em;
 }
-
-.top i:hover {
-   color: #00bcd4; /* Hover color: Cyan */
-}
-
-.bottom {
-   padding-top: 3rem; /* Increased top padding */
-   text-align: start;
-   display: flex;
-   justify-content: space-between;
-   flex-wrap: wrap;
-   margin-bottom: 0;
-}
-
-.bottom div {
+.other-media{
    display: flex;
    flex-direction: column;
-   width: 30%; /* Adjusted width for better spacing */
-   margin-bottom: 1.5rem; /* Added margin for better separation */
 }
-
-.bottom h4 {
-   font-size: 1.4rem; /* Slightly reduced font size */
-   padding: 1rem 0; /* Adjusted padding */
-   color: #ff8c00; /* DarkOrange */
-}
-
-.bottom a {
-   text-decoration: none;
+.other-media a{
    color: white;
-   padding-bottom: 0.4rem; /* Adjusted padding */
-   font-size: 1.1rem; /* Slightly reduced font size */
+   margin: 1%;
+   font-size: 2em;
+   font-weight: bold;
 }
-
-.bottom a:hover {
-   color: #ff8c00; /* Hover color: DarkOrange */
+.social-footer{
+   width: fit-content;
+   margin: 1%;
+   text-align: center;
 }
-
-@media screen and (max-width: 950px) {
-   .footer {
-       padding: 4rem 2rem;
-   }
-
-   .top i {
-       margin: 1rem 1rem 0 0;
-   }
-
-   .bottom div {
-       width: 50%;
-   }
+.social-footer>*{
+   margin: 1em 0em;
+}
+.social-footer h2{
+   text-decoration: underline;
 }

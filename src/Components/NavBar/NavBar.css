@@ -341,6 +341,9 @@
       display: block;
       font-size: 2.5rem;
     }
+    .hamburger-icon{
+      font-size: 2em;
+    }
   }
   
   @media (max-width: 520px) {
@@ -388,3 +391,13 @@
       font-size: 3.8rem;
     }
   }  
+
+.cart-logo{
+  font-size: 2em;
+}
+
+.navbar .rectangle{
+  width: 6em;
+  height: 6em;
+  object-fit: contain;
+}
