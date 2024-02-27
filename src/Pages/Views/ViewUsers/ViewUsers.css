@@ -1,44 +1,155 @@
-.viewusers-container {
-    padding: 20px;
+.parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  height: fit-content;
+}
+
+.view-orders-table {
+  top: 100px;
+  width: 100%;
+  height: fit-content;
+  overflow: auto hidden;
+}
+
+h1 {
+  margin-left: 25px;
+  font-size: large;
+  margin-top: 10px;
+}
+
+.filter-container {
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.filter-label {
+  font-size: 15px;
+}
+
+#filter {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  margin-right: 100px;
+}
+
+@media screen and (min-width: 600px) {
+  .filter-label {
+    font-size: 18px;
   }
-  
-  .viewusers-table {
+}
+
+@media screen and (min-width: 800px) {
+  .filter-container {
+    display: flex;
+    align-items: center;
+  }
+
+  #filter {
+    width: 200px; /* Adjust the width as needed */
+    margin-left: 10px;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+  border: 1px solid grey;
+  text-align: center;
+  font-size: 16px;
+}
+
+.table th {
+  color: black;
+  background-color: #ff8400;
+}
+
+.table button[disabled] {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .table thead {
+    display: none;
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
     width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+    overflow-x: hidden;
+  }
+
+  .table tr {
+    margin-bottom: 15px;
+  }
+
+  .table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
     font-size: 15px;
-  }
-  
-  .viewusers-table th,
-  .viewusers-table td {
-    padding: 12px;
+    font-weight: bold;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    background-color: #ff8400;
+    width: 100px;
   }
-  
-  .viewusers-table th {
-    background-color: #343a40;
-    color: #fff;
+
+  .table th {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 2;
   }
-  
-  @media (max-width: 768px) {
-    .viewusers-table {
-      width: 100%;
-      display: block;
-      overflow-x: auto;
-      white-space: nowrap;
-    }
-  
-    .viewusers-table th,
-    .viewusers-table td {
-      display: inline-block;
-      padding: 8px;
-      min-width: 150px;
-      font-size: 30px;
-    }
-  }
-  .viewusers-table button[disabled] {
+
+  .table button[disabled] {
     background-color: grey;
     cursor: not-allowed;
   }
-  
+
+  nav {
+    display: block;
+  }
+
+  .pagination-active {
+    background-color: black;
+    color: #fff;
+    padding: 4px 4px;
+  }
+
+  .pagination {
+    text-align: center;
+  }
+
+  .pagination li {
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+  .pagination a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+}

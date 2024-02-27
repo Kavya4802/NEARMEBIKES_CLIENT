@@ -110,7 +110,7 @@ function Navbar({ userc }) {
                     {Menuitems.map((items, index) => (
                         <li key={index}>
         {console.log(items.title)} {/* Log the title */}
-        {items.title.trim() === "Signup" && user ? (
+        {items.title === "Signup" && user ? (
             <span
                 className="nav-links"
                 onClick={() => setOpenProfile((prev) => !prev)}

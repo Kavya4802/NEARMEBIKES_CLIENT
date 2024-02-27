@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import "./Components.css";
-import AdminFooter from './Footer/AdminFooter';
+import Footer from './Footer/Footer';
 import AdminNavbar from './NavBar/AdminNavbar';
 function AddBike(){
        const[brand,setBrand]=useState("");
@@ -63,6 +63,7 @@ function AddBike(){
           <AdminNavbar></AdminNavbar>
    
           <div className='addbike-form'>
+          <h1>Add Bikes Here </h1>
            <Form>
                 <Form.Group as={Row} controlId="formPlaintextEmail">
                   <Form.Label column sm="1" style={{fontSize:"15px"}}>
@@ -150,7 +151,7 @@ function AddBike(){
                 Submit
               </Button>
               </div>
-              <AdminFooter></AdminFooter>
+              <Footer></Footer>
           </>
         );
         

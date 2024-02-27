@@ -203,6 +203,13 @@
   }
   .addbike-form{
     overflow: hidden;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    
+
+  
   }
 /* Customize the styles as needed */
 

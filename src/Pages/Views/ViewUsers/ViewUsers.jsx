@@ -1,10 +1,31 @@
 import "./ViewUsers.css";
-import { useState, useEffect } from "react";
-
-
+import { useState, useEffect, useRef } from "react";
+import Navbar from "../../../Components/NavBar/AdminNavbar";
+import Footer from "../../../Components/Footer/Footer";
+import { useReactToPrint } from "react-to-print";
+import PrintIcon from "@mui/icons-material/Print";
+import { Link } from "react-router-dom";
 function ViewUsers() {
   const [users, setUsers] = useState([]);
-  const [buttonClicked, setButtonClicked] = useState({});
+  const [filterText, setFilterText] = useState("");
+  const filteredUsers = users.filter((user) =>
+  user.userName.toLowerCase().includes(filterText.toLowerCase()) ||
+    user.phoneNumber.toLowerCase().includes(filterText.toLowerCase()));
+  
+  const [currentPage, setCurrentPage] = useState(1)
+  const recordPerPage = 5;
+  const firstIndex = (currentPage - 1) * recordPerPage;
+  const lastIndex = currentPage * recordPerPage;
+  const records = filteredUsers.slice(firstIndex, lastIndex);
+  const npage = Math.ceil(filteredUsers.length/ recordPerPage);
+  const numbers = [...Array(npage + 1).keys()].slice(1);
+  const [buttonClicked, setButtonClicked] = useState(() => {
+    // Initialize buttonClicked state with values from localStorage
+    const storedState = localStorage.getItem("buttonClicked");
+    return storedState ? JSON.parse(storedState) : {};
+  });
+ 
+  const printRef = useRef();
 
   useEffect(() => {
     // Fetch data from the server when the component mounts
@@ -13,6 +34,11 @@ function ViewUsers() {
       .then((data) => setUsers(data))
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
+
+  useEffect(() => {
+    // Update localStorage whenever buttonClicked changes
+    localStorage.setItem("buttonClicked", JSON.stringify(buttonClicked));
+  }, [buttonClicked]);   
 
   const handleReturnedClick = async (index) => {
     try {
@@ -52,71 +78,122 @@ function ViewUsers() {
     } catch (error) {
       console.error("Error updating returned status:", error);
     }
+   
   };
+  const handlePrint = useReactToPrint({
+  content: () => printRef.current,
+  });
+ function nextPage(){
+  if(currentPage !== lastIndex){
+    setCurrentPage(currentPage + 1);
+  }
+
+ }
+ function prePage(){
+ if(currentPage !== firstIndex){
+   setCurrentPage(currentPage -1);
+ }
+ }
+ function changeCPage(id){
+  setCurrentPage(id)
+ }
 
   return (
-    <>
-      <div className="desktop">
-        <div className="overlap-group-wrapper">
-          <div className="overlap-group">
-            
-            <div className="text-wrapper-16">
-            <div className="viewusers-container">
-      <h3>Orders received</h3>
+    <div className="parent">
+    <Navbar />
+    <div className="view-orders-container">
       <br />
-      <br />
-      <main className="viewusers-main">
-        <table className="viewusers-table">
-          <thead className="viewusers-thead">
+      <h1>View Orders</h1>
+  
+      <main>
+        <div className="filter-container">
+          <label className="filter-label" htmlFor="filter">
+            Filter by Name / Number:
+          </label>
+          <input
+            type="text"
+            id="filter"
+            placeholder="Enter your name or phone number"
+            value={filterText}
+            onChange={(e) => setFilterText(e.target.value)}
+          />
+          <button onClick={handlePrint}>
+            <PrintIcon />
+          </button>
+        </div>
+  
+        <table className="view-orders-table" ref={printRef}>
+          <thead>
             <tr>
-              <th>SNO</th>
-              <th>NAME</th>
-              <th>NUMBER</th>
-              <th>ORDER_ID</th>
-              <th>PAYMENT_ID</th>
-              <th>BIKE_NAME</th>
-              <th>AMOUNT</th>
-              <th>RETURNED</th>
-              <th>NOT RETURNED</th>
+              <th style={{ backgroundColor: "#ff8400" }}>SNO</th>
+              <th style={{ backgroundColor: "#ff8400" }}>NAME</th>
+              <th style={{ backgroundColor: "#ff8400" }}>NUMBER</th>
+              <th style={{ backgroundColor: "#ff8400" }}>Email</th>
+              <th style={{ backgroundColor: "#ff8400" }}>ORDER_ID</th>
+              <th style={{ backgroundColor: "#ff8400" }}>PAYMENT_ID</th>
+              <th style={{ backgroundColor: "#ff8400" }}>BIKE_NAME</th>
+              <th style={{ backgroundColor: "#ff8400" }}>AMOUNT</th>
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
-              <tr key={user._id} style={{ backgroundColor: user.returned ? "lightgrey" : "white" }}>
-                <td>{index + 1}</td>
-                <td>{user.userName}</td>
-                <td>{user.phoneNumber}</td>
-                <td>{user.orderId}</td>
-                <td>{user.paymentId}</td>
-                <td>{user.bikeName}</td>
-                <td>{user.amount}</td>
-                <td>
-                  <button
-                    onClick={() => handleReturnedClick(index)}
-                    disabled={buttonClicked[index]}
+            {records.map((user, index) => (
+              <tr
+                key={user._id}
+                style={{
+                  backgroundColor: user.returned ? "lightgrey" : "white",
+                }}
+              >
+                <td data-label="S.No">{firstIndex + index + 1}</td>
+                <td data-label="Name">
+                  <Link
+                    to={`/orders/${encodeURIComponent(user.userEmail)}`}
+                    style={{ textDecoration: "none", color: "black" }}
                   >
-                    Returned
-                  </button>
+                    {user.userName}
+                  </Link>
                 </td>
-                <td>
-                  <button
-                    onClick={() => handleNotReturnedClick(index)}
-                    disabled={!buttonClicked[index]}
-                  >
-                    Not Returned
-                  </button>
-                </td>
+                <td data-label="Ph.No">{user.phoneNumber}</td>
+                <td data-label="Email">{user.userEmail}</td>
+                <td data-label="Order_id">{user.orderId}</td>
+                <td data-label="Payment_id">{user.paymentId}</td>
+                <td data-label="BikeName">{user.bikeName}</td>
+                <td data-label="Price">{user.amount}</td>
               </tr>
             ))}
           </tbody>
+          <nav>
+            <ul className="pagination">
+              <li className="page-item">
+                <a href className="page-link" onClick={prePage}>
+                  Prev
+                </a>
+              </li>
+              {numbers.map((n, i) => (
+                <li
+                  className={`page-item ${
+                    currentPage === n ? "pagination-active" : ""
+                  }`}
+                  key={i}
+                >
+                  <a href className="page-link" onClick={() => changeCPage(n)}>
+                    {n}
+                  </a>
+                </li>
+              ))}
+              <li className="page-item">
+                <a href className="page-link" onClick={nextPage}>
+                  Next
+                </a>
+              </li>
+            </ul>
+          </nav>
         </table>
       </main>
     </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+  
+    <Footer />
+  </div>
+  
     
   );
 }

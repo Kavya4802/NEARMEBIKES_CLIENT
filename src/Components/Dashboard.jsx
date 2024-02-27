@@ -1,11 +1,12 @@
 import React from "react";
 import AdminNavbar from "./NavBar/AdminNavbar";
-import AdminFooter from "./Footer/AdminFooter";
+import Footer from "./Footer/Footer";
+
 function Dashboard () {
   return (
     <>
        <AdminNavbar></AdminNavbar>
-       <AdminFooter></AdminFooter>
+       <Footer></Footer>
     </>    
   );
 };
