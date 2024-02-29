@@ -34,7 +34,10 @@ import ViewUsers from "./Pages/Views/ViewUsers/ViewUsers";
 import ViewBike from "./Pages/Views/AdminViewBikes/ViewBikes";
 import Updates from "./Components/Updates";
 import Orders from "./Components/Orders";
+import ProfilePage from "./Components/ProfilePage";
 import Wrapper from "./Components/Wrapper";
+import ViewReturns from "./Pages/Views/ViewReturns/ViewReturns"
+import Invoice from "./Components/Invoice";
 // import { lookInSession } from "./Session";
 
 
@@ -80,12 +83,16 @@ function App() {
         <Route path="/password-reset" element={<Wrapper><PasswordReset /></Wrapper>} />
         <Route path="/forgotpassword/:id/:tokens" element={<Wrapper><ForgotPassword /></Wrapper>} />
         <Route path="/Dashboard" element={<Wrapper><Dashboard /></Wrapper>} />
+        <Route path="/getinvoice" element={<Wrapper><Invoice /></Wrapper>} />
+
         <Route path="/addbike" element={<Wrapper><AddBike /></Wrapper>} />
         <Route path="/viewuser" element={<Wrapper><ViewUsers /></Wrapper>} />
         <Route path="/viewbike" element={<Wrapper><ViewBike /></Wrapper>} />
+        <Route path="/profile/:email" element={<ProfilePage></ProfilePage>} />
         <Route path="/AppRoutes/*" element={<AppRoutes />} />
         <Route path="/bikeupdate/:bikeId" element={<Wrapper><Updates /></Wrapper>} />
         <Route path="/orders/:email" element={<Wrapper><Orders /></Wrapper>} />
+        <Route path="/returnstatus" element={<Wrapper><ViewReturns></ViewReturns></Wrapper>} />
       </Routes>
     </Router>
   );

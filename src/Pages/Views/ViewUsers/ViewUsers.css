@@ -6,14 +6,70 @@
   width: 100vw;
   height: fit-content;
 }
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.page-item {
+  margin-right: 5px;
+}
+
+.page-link {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.page-link:hover,
+.pagination-active .page-link {
+  background-color: #eee;
+}
+
+.page-link:active {
+  outline: none;
+}
+
+/* Style for Prev and Next buttons */
+.page-item:first-child .page-link,
+.page-item:last-child .page-link {
+  border-radius: 4px;
+}
+
+/* Additional styling for active page */
+.pagination-active .page-link {
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+}
+
+.pagination-active .page-link:hover {
+  background-color: #0056b3;
+}
 
 .view-orders-table {
   top: 100px;
   width: 100%;
   height: fit-content;
   overflow: auto hidden;
+  border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 15px;
 }
-
+.view-orders-table th,
+.view-orders-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
 h1 {
   margin-left: 25px;
   font-size: large;
@@ -54,54 +110,54 @@ h1 {
   }
 }
 
-.table {
+.view-orders-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.table th,
-.table td {
+.view-orders-table th,
+.view-orders-table td {
   padding: 12px 15px;
   border: 1px solid grey;
   text-align: center;
   font-size: 16px;
 }
 
-.table th {
+.view-orders-table th {
   color: black;
   background-color: #ff8400;
 }
 
-.table button[disabled] {
+.view-orders-table button[disabled] {
   background-color: grey;
   cursor: not-allowed;
 }
 
 @media (max-width: 768px) {
-  .table thead {
+  .view-orders-table thead {
     display: none;
   }
 
-  .table,
-  .table tbody,
-  .table tr,
-  .table td {
+  .view-orders-table,
+  .view-orders-table tbody,
+  .view-orders-table tr,
+  .view-orders-table td {
     display: block;
     width: 100%;
     overflow-x: hidden;
   }
 
-  .table tr {
+  .view-orders-table tr {
     margin-bottom: 15px;
   }
 
-  .table td {
+  .view-orders-table td {
     text-align: right;
     padding-left: 50%;
     position: relative;
   }
 
-  .table td::before {
+  .view-orders-table td::before {
     content: attr(data-label);
     position: absolute;
     left: 0;
@@ -114,14 +170,14 @@ h1 {
     width: 100px;
   }
 
-  .table th {
+  .view-orders-table th {
     position: sticky;
     position: -webkit-sticky;
     top: 0;
     z-index: 2;
   }
 
-  .table button[disabled] {
+  .view-orders-table button[disabled] {
     background-color: grey;
     cursor: not-allowed;
   }
@@ -130,26 +186,9 @@ h1 {
     display: block;
   }
 
-  .pagination-active {
-    background-color: black;
-    color: #fff;
-    padding: 4px 4px;
-  }
 
-  .pagination {
-    text-align: center;
-  }
 
-  .pagination li {
-    display: inline-block;
-    margin-right: 5px;
-  }
+  
 
-  .pagination a {
-    text-decoration: none;
-    display: inline-block;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
+
 }

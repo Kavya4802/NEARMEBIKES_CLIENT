@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
 import "./AdNavstyles.css";
 
 const Navbar = () => {
-  const [showMediaIcons, setShowMediaIcons] = useState(false);
+  const [shMediaIcons, setShMediaIcons] = useState(false);
 
   return (
     <>
-      <nav className="main-nav">
+      <nav className="mainss-nav">
         {/* 1st logo part */}
-        <div className="logo">
+        <div className="logos">
           <NavLink to="/">
             <img
               className="rectangle"
@@ -22,15 +22,15 @@ const Navbar = () => {
 
         {/* 2nd menu part */}
         <div
-          className={showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"}
+          className={shMediaIcons ? "me-link mobile-me-link" : "me-link"}
         >
           <ul>
             <li>
               <NavLink to="/Dashboard">Dashboard</NavLink>
             </li>
-            <li className="dropdown">
-              <span >Vehicle Management</span>
-              <ul className="dropdown-content">
+            <li className="down">
+              <span>Vehicle Management</span>
+              <ul className="down-content">
                 <li>
                   <NavLink to="/addbike">Add Bikes</NavLink>
                 </li>
@@ -39,18 +39,16 @@ const Navbar = () => {
                 </li>
               </ul>
             </li>
-            <li className="dropdown">
-              <span >Booking Management</span>
-              <ul className="dropdown-content">
+            <li className="down">
+              <span>Booking Management</span>
+              <ul className="down-content">
                 <li>
                   <NavLink to="/viewuser">View Orders</NavLink>
                 </li>
                 <li>
                   <NavLink to="/returnstatus">Return Vehicles</NavLink>
                 </li>
-                <li>
-                  <NavLink to="/userHistory">View History</NavLink>
-                </li>
+                
               </ul>
             </li>
             <li>
@@ -60,19 +58,18 @@ const Navbar = () => {
         </div>
 
         {/* Hamburger menu start */}
-        <div className="social-media">
-          <div className="hamburger-menu">
-            <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
-              <GiHamburgerMenu style={{ color: "black" }} />
+        <div className="soc">
+          <div className="hamb-menu">
+            <a href="#" onClick={() => setShMediaIcons(!shMediaIcons)}>
+              {shMediaIcons ? (
+                <RxCross1 style={{ color: "black" }} />
+              ) : (
+                <RxHamburgerMenu style={{ color: "black" }} />
+              )}
             </a>
           </div>
         </div>
       </nav>
-      {/* <img
-        className="rectangle-8"
-        alt="Rectangle"
-        src="https://cdn.animaapp.com/projects/65bbc2f61fb5420bd6884d53/releases/65bbe0dc7baf1f6eab2a7de0/img/rectangle-10.png"
-      /> */}
     </>
   );
 };

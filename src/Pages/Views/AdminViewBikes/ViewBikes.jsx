@@ -69,13 +69,13 @@ function ViewBike() {
   };
 
   return (
-    <>
+    <div className="par">
       <Navbar />
-      <div className="viewbikes-table">
+      <div className="viewbikes-container">
         <br />
         <h1>View Bikes / update Bike</h1>
         <main>
-          <table className="table">
+          <table className="viewbikes-table">
             <thead>
               <tr>
                 <th style={{backgroundColor:"#ff8400"}}>ID</th>
@@ -116,23 +116,26 @@ function ViewBike() {
               ))}
             </tbody>
             <nav>
-  <ul className="pagination">
-    <li className="page-item">
-      <a href className="page-link" onClick={prePage}>
+  <ul className="pag">
+    <li className="pag-item">
+      <button className="pag-link" onClick={prePage}>
         Prev
-      </a>
+      </button>
     </li>
     {numbers.map((n, i) => (
-      <li className={`page-item ${currentPage === n ? 'pagination-active' : ''}`} key={i}>
-        <a href className="page-item" onClick={() => changeCPage(n)}>
+      <li
+        className={`pag-item ${currentPage === n ? "pag-active" : ""}`}
+        key={i}
+      >
+        <button className="pag-link" onClick={() => changeCPage(n)}>
           {n}
-        </a>
+        </button>
       </li>
     ))}
-    <li className="page-item">
-      <a href className="page-link" onClick={nextPage}>
+    <li className="pag-item">
+      <button className="pag-link" onClick={nextPage}>
         Next
-      </a>
+      </button>
     </li>
   </ul>
 </nav>
@@ -141,7 +144,7 @@ function ViewBike() {
         </main>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

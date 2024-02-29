@@ -85,7 +85,7 @@ const ForgotPassword = () => {
                     <Form.Item name='password' label='New Password' rules={[{required:true}]}  onChange={(setVal)}>
                     <Input type="password"></Input>
                     </Form.Item>
-                    { <button className="btn" onClick={sendpassword}>Send</button> }
+                    { <button className="btn" onClick={sendpassword}>Submit</button> }
                 </Form>
                 
             </Col>

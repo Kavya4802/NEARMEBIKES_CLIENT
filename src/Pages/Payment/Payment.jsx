@@ -183,7 +183,7 @@ const Payment = () => {
     return { durationInHours, totalPrice };
   };
   return (
-    <>
+    <div className="payment-parent">
     <Navbar></Navbar>
     <div className="payment-page">
       {/* Summary Card */}
@@ -344,7 +344,7 @@ const Payment = () => {
       )}
       </div>
       </div>
-       </>
+       </div>
   );
       }
 export default Payment;

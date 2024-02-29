@@ -1,23 +1,22 @@
-import React from 'react';
-import './Components.css';
+// DropDown.js
 
-const DropDown = ({ onLogout }) => {
-    const handleLogout = () => {
-        // Call the onLogout function passed as a prop
-        onLogout();
-    };
-
-    return (
-        <div className='flex flex-col dropDownProfile'>
-            <ul className='flex flex-col gap-4'>
-                {/* You can add more items to the dropdown if needed */}
-                {/* <li style={{listStyle:"none"}}>Profile</li> */}
-                <li style={{ listStyle: 'none', cursor: 'pointer' }} onClick={handleLogout}>
-                    Logout
-                </li>
-            </ul>
-        </div>
-    );
+import React from "react";
+import { Link } from "react-router-dom";
+import "./DropDown.css";
+const DropDown = ({ onLogout, userEmail }) => {
+  return (
+    <div className="dropdown">
+      <Link to={`/profile/${userEmail}`} className="dropdown-link">
+        Profile
+      </Link>
+      <Link to="/orders" className="dropdown-link">
+        Orders
+      </Link>
+      <div className="dropdown-link" onClick={onLogout} style={{ cursor: "pointer" }}>
+        Logout
+      </div>
+    </div>
+  );
 };
 
 export default DropDown;

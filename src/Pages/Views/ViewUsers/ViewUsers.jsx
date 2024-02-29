@@ -162,32 +162,30 @@ function ViewUsers() {
             ))}
           </tbody>
           <nav>
-            <ul className="pagination">
-              <li className="page-item">
-                <a href className="page-link" onClick={prePage}>
-                  Prev
-                </a>
-              </li>
-              {numbers.map((n, i) => (
-                <li
-                  className={`page-item ${
-                    currentPage === n ? "pagination-active" : ""
-                  }`}
-                  key={i}
-                >
-                  <a href className="page-link" onClick={() => changeCPage(n)}>
-                    {n}
-                  </a>
-                </li>
-              ))}
-              <li className="page-item">
-                <a href className="page-link" onClick={nextPage}>
-                  Next
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </table>
+  <ul className="pagination">
+    <li className="page-item">
+      <button className="page-link" onClick={prePage}>
+        Prev
+      </button>
+    </li>
+    {numbers.map((n, i) => (
+      <li
+        className={`page-item ${currentPage === n ? "pagination-active" : ""}`}
+        key={i}
+      >
+        <button className="page-link" onClick={() => changeCPage(n)}>
+          {n}
+        </button>
+      </li>
+    ))}
+    <li className="page-item">
+      <button className="page-link" onClick={nextPage}>
+        Next
+      </button>
+    </li>
+  </ul>
+</nav>
+      </table>
       </main>
     </div>
   

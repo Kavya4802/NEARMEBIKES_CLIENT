@@ -201,16 +201,7 @@
     background-color: grey; /* Change to your desired grey color */
     cursor: not-allowed;
   }
-  .addbike-form{
-    overflow: hidden;
-    align-self: center;
-    justify-self: center;
-    display: flex;
-    flex-direction: column;
-    
-
-  
-  }
+ 
 /* Customize the styles as needed */
 
 /* SIDEBAR STYLES */

@@ -1,4 +1,4 @@
-.par {
+.return-parent {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,18 +6,18 @@
     width: 100vw;
     height: fit-content;
   }
-  .pag {
+  .pagi {
     display: flex;
     list-style: none;
     padding: 0;
     margin: 20px 0;
   }
   
-  .pag-item {
+  .pagi-item {
     margin-right: 5px;
   }
   
-  .pag-link {
+  .pagi-link {
     display: block;
     padding: 8px 12px;
     text-decoration: none;
@@ -29,33 +29,33 @@
     transition: background-color 0.3s ease;
   }
   
-  .pag-link:hover,
-  .pag-active .pag-link {
+  .pagi-link:hover,
+  .pagi-active .pagi-link {
     background-color: #eee;
   }
   
-  .pag-link:active {
+  .pagi-link:active {
     outline: none;
   }
   
   /* Style for Prev and Next buttons */
-  .pag-item:first-child .pag-link,
-  .pag-item:last-child .pag-link {
+  .pagi-item:first-child .pagi-link,
+  .pagi-item:last-child .pagi-link {
     border-radius: 4px;
   }
   
   /* Additional styling for active page */
-  .pag-active .pag-link {
+  .pagi-active .pagi-link {
     background-color: #007bff;
     color: #fff;
     border: 1px solid #007bff;
   }
   
-  .pag-active .pag-link:hover {
+  .pagi-active .pagi-link:hover {
     background-color: #0056b3;
   }
   
-  .viewbikes-table {
+  .return-table {
     top: 100px;
     width: 100%;
     height: fit-content;
@@ -64,8 +64,8 @@
       margin-bottom: 20px;
       font-size: 15px;
   }
-  .viewbikes-table th,
-  .viewbikes-table td {
+  .return-table th,
+  .return-table td {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -76,58 +76,88 @@
     margin-top: 10px;
   }
   
+  .fil-container {
+    margin-bottom: 20px;
+    justify-content: center;
+  }
   
-
-
+  .fil-label {
+    font-size: 15px;
+  }
   
-  .viewbikes-table {
+  #filter {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    margin-right: 100px;
+  }
+  
+  @media screen and (min-width: 600px) {
+    .fil-label {
+      font-size: 18px;
+    }
+  }
+  
+  @media screen and (min-width: 800px) {
+    .fil-container {
+      display: flex;
+      align-items: center;
+    }
+  
+    #filter {
+      width: 200px; /* Adjust the width as needed */
+      margin-left: 10px;
+    }
+  }
+  
+  .return-table {
     width: 100%;
     border-collapse: collapse;
   }
   
-  .viewbikes-table th,
-  .viewbikes-table td {
+  .return-table th,
+  .return-table td {
     padding: 12px 15px;
     border: 1px solid grey;
     text-align: center;
     font-size: 16px;
   }
   
-  .viewbikes-table th {
+  .return-table th {
     color: black;
     background-color: #ff8400;
   }
   
-  .viewbikes-table button[disabled] {
+  .return-table button[disabled] {
     background-color: grey;
     cursor: not-allowed;
   }
   
   @media (max-width: 768px) {
-    .viewbikes-table thead {
+    .return-table thead {
       display: none;
     }
   
-    .viewbikes-table,
-    .viewbikes-table tbody,
-    .viewbikes-table tr,
-    .viewbikes-table td {
+    .return-table,
+    .return-table tbody,
+    .return-table tr,
+    .return-table td {
       display: block;
       width: 100%;
       overflow-x: hidden;
     }
   
-    .viewbikes-table tr {
+    .return-table tr {
       margin-bottom: 15px;
     }
   
-    .viewbikes-table td {
+    .return-table td {
       text-align: right;
       padding-left: 50%;
       position: relative;
     }
   
-    .viewbikes-table td::before {
+    .return-table td::before {
       content: attr(data-label);
       position: absolute;
       left: 0;
@@ -140,14 +170,14 @@
       width: 100px;
     }
   
-    .viewbikes-table th {
+    .return-table th {
       position: sticky;
       position: -webkit-sticky;
       top: 0;
       z-index: 2;
     }
   
-    .viewbikes-table button[disabled] {
+    .return-table button[disabled] {
       background-color: grey;
       cursor: not-allowed;
     }
@@ -162,31 +192,4 @@
   
   
   }
-  .update-button,
-.delete-button {
-  padding: 8px 12px;
-  margin: 5px;
-  cursor: pointer;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
-}
-
-.update-button {
-  background-color: #28a745;
-  color: #fff;
-}
-
-.update-button:hover {
-  background-color: #218838;
-}
-
-.delete-button {
-  background-color: #dc3545;
-  color: #fff;
-}
-
-.delete-button:hover {
-  background-color: #c82333;
-}
+  
