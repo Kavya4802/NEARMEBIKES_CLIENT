@@ -5,16 +5,31 @@ import { useNavigate } from "react-router-dom";
 import { Row, Col, Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import "./Components.css";
-
+import { FaStar } from "react-icons/fa";
 function Cards({ user }) {
     const [cartCount, setCartCount] = useState(0);
     const [bikes, setBikes] = useState([]);
+    const [ratings, setRatings] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         fetchBikeData();
+        fetchRatings();
     }, []);
+    const fetchRatings = async () => {
+        try {
+            const response = await fetch("http://localhost:5000/bike-ratings");
+            const ratingData = await response.json();
 
+            if (ratingData.status === "ok") {
+                setRatings(ratingData.ratings);
+            } else {
+                console.log("Error fetching bike ratings");
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
     const fetchBikeData = async () => {
         try {
             const response = await fetch("http://localhost:5000/getbikes");
@@ -92,7 +107,25 @@ function Cards({ user }) {
             console.error(error);
         }
     };
-
+    function getRatingForBike(bikeId) {
+        const rating = ratings.find((r) => r.bikeId === bikeId);
+        const averageRating = rating ? rating.rating : 0;
+      
+        // Convert average rating to stars
+        const stars = [];
+        for (let i = 1; i <= 5; i++) {
+          stars.push(
+            <FaStar
+              key={i}
+              className="star"
+              color={i <= averageRating ? '#ffc107' : '#e4e5e9'}
+              size={25}
+            />
+          );
+        }
+      
+        return stars;
+      }
     return (
         <>
             <Row md={3} xs={1} className="card-container">
@@ -130,6 +163,9 @@ function Cards({ user }) {
                                     </Button>
                                 </div>
                             </Card.Body>
+                            <div className="card-rating">
+                                Rating: {getRatingForBike(bike._id)}
+                            </div>
                         </Card>
                     </Col>
                 ))}

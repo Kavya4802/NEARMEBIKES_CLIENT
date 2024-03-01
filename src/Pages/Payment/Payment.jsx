@@ -18,6 +18,8 @@ const Payment = () => {
   const [showTermsPopup, setShowTermsPopup] = useState(false);
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
+  const [bikeData, setBikeData] = useState([]);
+  const [rating, setRating] = useState(null);
   const [showCongratulationsPopup, setShowCongratulationsPopup] =
     useState(false);
   const navigate = useNavigate();
@@ -28,33 +30,65 @@ const Payment = () => {
   const toggleTermsPopup = () => {
     setShowTermsPopup(!showTermsPopup);
   };
-  useEffect(() => {
-    const fetchUserDetails = async () => {
-      const token = localStorage.getItem("token");
-      if (token) {
-        try {
-          const response = await fetch("http://localhost:5000/getusers", {
-            headers: {
-              Authorization: token,
-            },
-          });
-          const data = await response.json();
+  const [ratings, setRatings] = useState([]);
 
-          if (data.status === "ok") {
-            setUser(data.user);
+// Fetch ratings on component mount
+useEffect(() => {
+  const fetchUserDetails = async () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      try {
+        const response = await fetch("http://localhost:5000/getusers", {
+          headers: {
+            Authorization: token,
+          },
+        });
+        const data = await response.json();
+
+        if (data.status === "ok") {
+          setUser(data.user);
+
+          // Find the rating for the specific bikeId
+          const fetchedRating = ratings.find((r) => r.bikeId === bikeData._id);
+
+          if (fetchedRating) {
+            setRating(fetchedRating);
+            console.log("lkhgf:",rating);
           } else {
-            console.log("Error fetching user details");
+            console.log("Bike rating not found");
           }
-        } catch (error) {
-          console.log(error);
+        } else {
+          console.log("Error fetching user details");
         }
-      } else {
-        setUser(null);
+      } catch (error) {
+        console.log(error);
       }
-    };
+    } else {
+      setUser(null);
+    }
+  };
 
-    fetchUserDetails();
-  }, []);
+  fetchUserDetails();
+}, [bikeData._id, ratings]);
+useEffect(() => {
+  const fetchRatings = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/bike-ratings");
+      const ratingData = await response.json();
+
+      if (ratingData.status === "ok") {
+        setRatings(ratingData.ratings);
+      } else {
+        console.log("Error fetching bike ratings");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  fetchRatings();
+}, []);
+
   const handleAcceptTermsChange = () => {
     setAcceptTerms(!acceptTerms);
   };
@@ -102,6 +136,7 @@ const Payment = () => {
           endDate: endDate.toISOString(),
           bikeId: bikeData._id,
           bikeName: bikeData.brand,
+          bikePicture:bikeData.picture
         };
         try {
           await fetch("http://localhost:5000/save-transaction", {
@@ -141,13 +176,15 @@ const Payment = () => {
   };
   // const [startDate, setStartDate] = useState(new Date());
   const { id } = useParams();
-  const [bikeData, setBikeData] = useState([]);
+  
   useEffect(() => {
     loadScript("https://checkout.razorpay.com/v1/checkout.js");
   }, []);
   useEffect(() => {
     fetch(`http://localhost:5000/bikes/${id}`, {
       method: "GET",
+
+
     })
       .then((res) => res.json())
       .then((data) => {
@@ -209,6 +246,18 @@ const Payment = () => {
             </div>
           </div>
         </Card>
+        {rating && (
+                <div>
+                  <ul>
+                  <h1>reviews</h1>
+                    {rating.userEmail.map((email, index) => (
+                      <li key={index}>
+                        {email}:{rating.description[index]}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
       </div>
       <div className="important-card">
       <div className="date-card">
@@ -238,6 +287,7 @@ const Payment = () => {
         />
       </div>
     </div>
+    
   </Card>
 </div>
 
@@ -257,7 +307,7 @@ const Payment = () => {
               <Card.Text className="checkout-card-text">
                 Bike Brand: {bikeData.brand}
               </Card.Text>
-
+             
               <Card.Text className="checkout-card-text">
                 <pre
                   style={{

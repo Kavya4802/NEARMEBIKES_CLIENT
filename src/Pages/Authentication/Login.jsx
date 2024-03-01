@@ -4,48 +4,61 @@ import { useParams } from "react-router-dom";
 import Navbar from "../../Components/NavBar/NavBar";
 import Footer from "../../Components/Footer/Footer";
 import "./login.css";
-
-
+import { storeInSession } from "./Session";
+import { useLocation } from 'react-router';
 function Login() {
     const { id } = useParams();
     const [email, setEmail] = useState("");
     const [pwd, setPwd] = useState("");
     const navigate = useNavigate();
-
+    const location = useLocation();
     function handleClick(e) {
         e.preventDefault();
-
+        const source = location.state ? location.state.source : "navbar";
+    
         fetch("http://localhost:5000/login", {
-            method: "POST",
-            crossDomain: true,
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-                "Access-control-Allow-Origin": "*",
-            },
-            body: JSON.stringify({
-                email,
-                pwd,
-            }),
+          method: "POST",
+          crossDomain: true,
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "Access-control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({
+            email,
+            pwd,
+          }),
         })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data, "userRegister");
-                if (data.status === "ok") {
-                    alert("Login successful");
-
-                    if (data.role === "admin") {
-                        window.localStorage.setItem("token", data.data);
-                        navigate('/Dashboard');
-                    } else {
-                        window.localStorage.setItem("token", data.data);
-                        navigate(id !== "undefined" ? '/' : '/');
-                    }
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log(data, "userRegister");
+            if (data.status === "ok") {
+              alert("Login successful");
+              storeInSession("user",JSON.stringify(data));
+              if (data.role === "admin") {
+                window.localStorage.setItem("token", data.data);
+                navigate('/Dashboard');
+                // window.localStorage.removeItem("token");
+              } else {
+                window.localStorage.setItem("token", data.data);
+    
+                if (source === "bookNow") {
+                  const redirectPath = localStorage.getItem("redirectPath");
+                  if (redirectPath) {
+                    localStorage.removeItem("redirectPath");
+                  navigate(redirectPath);
+                  } else {
+                  navigate(`/payment/${id}`);
+                  }
                 } else {
-                    alert("Invalid Username or Password");
+                navigate(id !== "undefined" ? '/' : '/');
                 }
-            });
-    }
+              }
+            } else {
+              alert("Invalid Username or Password");
+            }
+          });
+      }
 
     return (
         <div className="login-parent">
