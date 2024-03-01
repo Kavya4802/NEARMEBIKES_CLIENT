@@ -59,16 +59,12 @@ function Register() {
             <Navbar />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <div className="register">
-            <div>
+                <div>
                     <img src="https://images.unsplash.com/photo-1656420731047-3eb41c9d1dee?ixlib=rb-4.0.3&i
              xid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=8" alt=""></img>
                 </div>
-                <div>
-                <br></br>
-                <br></br>
-                <br></br>
+                <div className="register-pop-up">
                     <h1>Register</h1>
-                    <hr></hr>
                     <label>Name:</label>
                     <input type="text" onChange={(e) => setName(e.target.value)} />
                     <label>Email:</label>
@@ -86,8 +82,6 @@ function Register() {
                     <button className="btn1" onClick={handleClick}>
                         Submit
                     </button>
-                    <br></br>
-                    <br></br>
                     <p style={{ color: "black" }}>
                         Already registered?<span><Link to={`/login/${id}`}>Login</Link></span>
                     </p>

@@ -1,83 +1,99 @@
 .register img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Hide the image on small devices */
+@media (max-width: 768px) {
+  .register img {
+    display: none;
   }
-  
-  /* Hide the image on small devices */
-  @media (max-width: 768px) {
-    .register img {
-      display: none;
-    }
-  }
-  
+}
+
+.register-parent {
+  background-color: #e7e7e7;
+}
+
+.register {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+  padding-top: 7em;
+  background: #e7e7e7;
+}
+
+.register-pop-up {
+  background-color: white;
+  border-radius: 10px;
+  padding: 2%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 5%;
+
+}
+
+.register div {
+  flex: 1;
+  padding: 20px;
+  max-width: 400px;
+}
+
+.register h1 {
+  font-size: 3.5vw;
+  margin: 1em 0em;
+  text-align: center;
+}
+
+.register label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.register input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.register button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.register button:hover {
+  background-color: #45a049;
+}
+
+.register p {
+  margin-top: 10px;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
   .register {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 20px;
+    flex-direction: column;
+    text-align: center;
   }
-  
+
   .register div {
-    flex: 1;
-    padding: 20px;
-    max-width: 400px;
+    max-width: none;
   }
-  
-  .register h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
+}
+
+/* Set the image container height to be the same as the form container on larger devices */
+@media (min-width: 769px) {
+  .register img {
+    height: 100%;
+    max-height: 100%;
+    object-fit: cover;
   }
-  
-  .register label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .register input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  .register button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .register button:hover {
-    background-color: #45a049;
-  }
-  
-  .register p {
-    margin-top: 10px;
-  }
-  
-  /* Media Query for smaller screens */
-  @media (max-width: 768px) {
-    .register {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .register div {
-      max-width: none;
-    }
-  }
-  
-  /* Set the image container height to be the same as the form container on larger devices */
-  @media (min-width: 769px) {
-    .register img {
-      height: 100%;
-      max-height: 100%;
-      object-fit: cover;
-    }
-  }
-  
+}
