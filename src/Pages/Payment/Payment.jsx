@@ -10,6 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import Datetime from "react-datetime";
 import { Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import watermark from "../../Components/watermark.png";
 import CryptoJS from "crypto-js";
 const Payment = () => {
   const [startDate, setStartDate] = useState("");
@@ -183,8 +184,10 @@ const Payment = () => {
     return { durationInHours, totalPrice };
   };
   return (
+    <div>
+    <Navbar />
     <div className="payment-parent">
-    <Navbar></Navbar>
+    {/* <Navbar></Navbar> */}
     <div className="payment-page">
       {/* Summary Card */}
       <div className="summary-card">
@@ -193,7 +196,7 @@ const Payment = () => {
           <div className="bike-details-content">
             <Card.Img
               variant="top"
-              src={`http://localhost:5000/images/${bikeData.picture}`}
+              src={watermark}
               alt="Bike Image"
             />
             <div className="bike-details-content">
@@ -344,6 +347,7 @@ const Payment = () => {
       )}
       </div>
       </div>
+       </div>
        </div>
   );
       }

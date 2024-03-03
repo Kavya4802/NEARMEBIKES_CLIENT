@@ -1,5 +1,6 @@
 /* Paymentstyles.css */
 .payment-parent{
+  margin-top: 1rem;
   color: black;
 }
 .payment-page {
@@ -14,47 +15,224 @@
   margin-bottom: 20px;
   margin-top: 50px;
 }
-
-.bike-details-content {
-  text-align: center;
-}
-.date-card {
-  /* ... your existing styles ... */
-  position: relative;
-  z-index: 1; /* Add this line to set the z-index */
-}
-
-.bike-details-content img {
-  max-width: 30%;
-  height: auto;
+/* Basic styling for the date card container */
+.date-card, .summary-card, .checkout-card {
+  max-width: 400px;
+  margin: 40px auto;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
-}
-.date-card label {
-  font-size: 16px;
-  color: #333; /* Change color to your preference */
-  margin-bottom: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
+/* Styling for the card header */
+.date-card .card-header {
+  background-color: #28a745;
+  color: #fff;
+  padding: 12px;
+  font-weight: bold;
+}
+
+/* Styling for the date section */
+.date-card .date-section {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+/* Styling for the form input */
 .date-card .form-input {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
-.date-card input {
-  width: 80%; /* Decreased the width of the input field */
+/* Styling for the label */
+.date-card .form-input label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Styling for the date input */
+.date-card .form-input .form-control {
+  width: 100%;
   padding: 10px;
   font-size: 14px;
-  border: 1px solid #ccc; /* Change color to your preference */
-  border-radius: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
-.date-card input:focus {
-  outline: none;
-  border-color: #3498db; /* Change color to your preference */
+/* Styling for the Datepicker container */
+.date-card .form-input .rdt {
+  display: block;
+}
+
+/* Styling for the Datepicker input */
+.date-card .form-input .rdtPicker {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Styling for the Datepicker calendar */
+.date-card .form-input .rdtPicker table {
+  width: 100%;
+  margin: 0;
+}
+
+/* Styling for the Datepicker day */
+.date-card .form-input .rdtDay {
+  font-size: 12px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+}
+
+/* Styling for the Datepicker selected day */
+.date-card .form-input .rdtActive {
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 50%;
+}
+
+/* Styling for the Datepicker today's date */
+.date-card .form-input .rdtToday {
+  font-weight: bold;
+}
+
+/* Styling for the Datepicker time input */
+.date-card .form-input .rdtTimeToggle {
+  font-size: 14px;
+  color: #28a745;
+}
+
+/* Styling for the Datepicker AM/PM toggle */
+.date-card .form-input .rdtAmPm {
+  font-size: 12px;
+  color: #28a745;
 }
 p{
-  color:black
+  color: black;
+}
+
+/* Styling for the card header */
+.summary-card .card-header {
+  background-color: #ff8400;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+/* Styling for the bike details content */
+.summary-card .bike-details-content {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+/* Styling for the bike image */
+.summary-card .bike-details-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Styling for the bike name */
+.summary-card .bike-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Styling for the bike price */
+.summary-card .bike-price {
+  font-size: 2rem;
+  color: #007bff;
 }
 
 
+.checkout-card .checkout-card-header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px;
+  font-weight: bold;
+}
+
+.checkout-card-text {
+  font-size: larger;
+  margin-bottom: 12px;
+}
+
+.checkout-card-text span {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.paynow-button {
+  background-color: #28a745;
+  color: #fff;
+  margin-top: 12px;
+  border: none;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Popup Content */
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+/* Accept Terms Container */
+.accept-terms-container {
+  margin-bottom: 20px;
+}
+
+.accept-terms-container label {
+  display: block;
+  font-size: 14px;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.proceed-button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.proceed-button.green:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.close-button {
+  background-color: #ccc;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
