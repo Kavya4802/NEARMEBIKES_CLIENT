@@ -170,22 +170,14 @@ h1 {
     width: 100px;
   }
 
-<<<<<<< HEAD
   .view-orders-table th {
-=======
-  .table th {
->>>>>>> 41ebc97 (first commit)
     position: sticky;
     position: -webkit-sticky;
     top: 0;
     z-index: 2;
   }
 
-<<<<<<< HEAD
   .view-orders-table button[disabled] {
-=======
-  .table button[disabled] {
->>>>>>> 41ebc97 (first commit)
     background-color: grey;
     cursor: not-allowed;
   }
@@ -194,34 +186,9 @@ h1 {
     display: block;
   }
 
-<<<<<<< HEAD
 
 
   
 
 
-=======
-  .pagination-active {
-    background-color: black;
-    color: #fff;
-    padding: 4px 4px;
-  }
-
-  .pagination {
-    text-align: center;
-  }
-
-  .pagination li {
-    display: inline-block;
-    margin-right: 5px;
-  }
-
-  .pagination a {
-    text-decoration: none;
-    display: inline-block;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
->>>>>>> 41ebc97 (first commit)
 }
