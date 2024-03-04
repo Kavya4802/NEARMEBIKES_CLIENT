@@ -33,10 +33,8 @@ const ProfilePage = () => {
   }, [userEmail]);
 
   const [profile, setProfile] = useState({
-    name: "",
-    email: "",
-    phno: "",
-    add: "",
+  no: user?.no || "",
+  add: user?.add || "",
   });
 
   const handleChange = (e) => {
@@ -49,14 +47,14 @@ const ProfilePage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const formData = new FormData();
-      formData.append("phno", profile.phno);
-      formData.append("add", profile.add);
-
       const response = await axios.put(
         `http://localhost:5000/updateprofile/${userEmail}`,
-        formData
+        {
+          no: profile.no,
+          add: profile.add,
+        }
       );
+  
       if (!response.data.error) {
         alert("User Profile updated successfully!");
       } else {
@@ -66,6 +64,7 @@ const ProfilePage = () => {
       console.error("Error updating profile:", error);
     }
   };
+  
 
   return (
     <div className="profile-parent">
@@ -80,8 +79,7 @@ const ProfilePage = () => {
           <input
             type="text"
             name="name"
-            placeholder={user?.name || ""}
-            onChange={handleChange}
+            value={user?.name || ""}
             className="profile-form-control"
           />
         </label>
@@ -92,8 +90,7 @@ const ProfilePage = () => {
           <input
             type="text"
             name="email"
-            placeholder={user?.email || ""}
-            onChange={handleChange}
+            value={user?.email || ""}
             className="profile-form-control"
           />
         </label>
@@ -103,8 +100,8 @@ const ProfilePage = () => {
           Ph.no:
           <input
             type="text"
-            name="phno"
-            placeholder={user?.no || ""}
+            name="no"
+            placeholder={user?.no||""}
             onChange={handleChange}
             className="profile-form-control"
           />
@@ -116,7 +113,7 @@ const ProfilePage = () => {
           <input
             type="text"
             name="add"
-            placeholder={user?.add || ""}
+            placeholder={user?.add}
             onChange={handleChange}
             className="profile-form-control"
           />

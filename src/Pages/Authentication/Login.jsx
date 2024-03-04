@@ -72,7 +72,6 @@ function Login() {
                 <div className='text-left p-45'>
                     <form className="login-form p-5">
                         <h1>Login</h1>
-                        <hr></hr>
                         <label>Email</label>
                         <input
                             type="text"
@@ -86,7 +85,6 @@ function Login() {
                             onChange={(e) => setPwd(e.target.value)}
                         />
                         <button className="btn1" onClick={handleClick}>Login</button>
-                        <br></br>
                         <p style={{ color: "black" }}>Don't have an account? <span><Link to="/register">Signup</Link></span></p>
                         <p style={{ color: "black", fontWeight: "bold" }}>Forgot Password <span><Link to="/password-reset">click here</Link></span></p>
                     </form>

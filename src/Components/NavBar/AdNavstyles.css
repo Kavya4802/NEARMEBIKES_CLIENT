@@ -36,7 +36,8 @@
   position: absolute;
   top: 100%; /* Position the nested ul below the parent li */
   left: 0;
-  width: 200px; /* Set the width of the dropdown */
+  width: 200px; 
+  height: min-content;
   background-color: #fff; /* Background color of the dropdown */
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Add a box shadow for a better look */
 }
@@ -53,30 +54,10 @@
 /* ... (your existing styles) ... */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .active{
   background-color: #000; 
-  color: white !important;/* Background color on hover */
-  padding: 37px 18px !important;/* Add padding for a better button-like appearance */
+  color: white !important;
+  padding: 37px 18px !important;
   display: block;
   height: 10rem;
 }
@@ -92,10 +73,7 @@ li {
   list-style: none;
 }
 
-/* 
- 
 
-/* navbar style start  */
 .logos{
   height: 85px;
   left: 27px;
@@ -161,7 +139,7 @@ li {
   text-transform: capitalize;
   color: rgba(0, 0, 3, 0.8);
   text-decoration: none;
-  transition: background-color 0.3s ease; /* Add smooth transition for background color */
+
   padding: 12px 18px;
 }
 .me-link ul li:hover > a {

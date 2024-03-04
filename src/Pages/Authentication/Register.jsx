@@ -74,7 +74,8 @@ function Register() {
     
   
     return (
-      <>
+
+      <div>
         <Navbar />
         <div className="signup">
           <Row gutter={16}>
@@ -162,9 +163,44 @@ function Register() {
               </Form>
             </Col>
           </Row>
+
+        <div className="register-parent">
+            <Navbar />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <div className="register">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1656420731047-3eb41c9d1dee?ixlib=rb-4.0.3&i
+             xid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=8" alt=""></img>
+                </div>
+                <div className="register-pop-up">
+                    <h1>Register</h1>
+                    <label>Name:</label>
+                    <input type="text" onChange={(e) => setName(e.target.value)} />
+                    <label>Email:</label>
+                    <input type="text" onChange={(e) => setEmail(e.target.value)} />
+                    <label>Password:</label>
+                    <input type="password" onChange={(e) => setPwd(e.target.value)} />
+                    <label>Number:</label>
+                    <input type="text" onChange={(e) => setNo(e.target.value)} />
+                    <label>Address:</label>
+                    <input type="text" onChange={(e) => setAdd(e.target.value)} />
+                    <label>City:</label>
+                    <input type="text" onChange={(e) => setCity(e.target.value)} />
+                    <label>Pincode:</label>
+                    <input type="text" onChange={(e) => setPin(e.target.value)} />
+                    <button className="btn1" onClick={handleClick}>
+                        Submit
+                    </button>
+                    <p style={{ color: "black" }}>
+                        Already registered?<span><Link to={`/login/${id}`}>Login</Link></span>
+                    </p>
+                </div>
+            </div>
+            <Footer />
+
         </div>
-        <Footer />
-      </>
+        </div>
+        </div>
     );
   }
   

@@ -127,7 +127,6 @@ function Navbar({ userc }) {
           {/* Menu items */}
           {Menuitems.map((items, index) => (
             <li key={index}>
-              {console.log(items.title)} {/* Log the title */}
               {items.title === "Signup" && user ? (
                 <div className="user-dropdown">
               <span
