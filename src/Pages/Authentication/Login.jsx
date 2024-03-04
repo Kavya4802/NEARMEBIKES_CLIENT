@@ -85,7 +85,7 @@ function Login() {
                             onChange={(e) => setPwd(e.target.value)}
                         />
                         <button className="btn1" onClick={handleClick}>Login</button>
-                        <p style={{ color: "black" }}>Don't have an account? <span><Link to="/register">Signup</Link></span></p>
+                        <p style={{ color: "black", display:"flex", alignItems : "center", justifyContent : "center" }}>Don't have an account? <span><Link to="/register" className="login-btn">Signup</Link></span></p>
                         <p style={{ color: "black", fontWeight: "bold" }}>Forgot Password <span><Link to="/password-reset">click here</Link></span></p>
                     </form>
                 </div>

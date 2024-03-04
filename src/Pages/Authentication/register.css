@@ -31,13 +31,14 @@
 input{
   width: 20dvw!important;
 }
-.login{
+.login-btn{
   color: black;
   background-color: rgb(19, 222, 19);
   width: 5dvw;
   height: fit-content;
-  padding: 1%;
+  padding: 0.5rem!important;
   font-size: 1.5em;
   border-radius: 0.5rem;
   font-weight: bolder;
+  margin: 1%;
 }

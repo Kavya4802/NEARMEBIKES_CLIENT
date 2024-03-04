@@ -155,7 +155,7 @@ function Register() {
               <p style={{ color: "black", display:"flex", alignItems:"center",justifyContent:"center" }}>
                 Already registered?
                 <span>
-                  <a className="login" href={`/login/${id}`}>Login</a>
+                  <a className="login-btn" href={`/login/${id}`}>Login</a>
                 </span>
               </p>
             </form>
