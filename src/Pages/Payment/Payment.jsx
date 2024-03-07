@@ -32,9 +32,8 @@ const Payment = () => {
     setShowTermsPopup(!showTermsPopup);
   };
   const [ratings, setRatings] = useState([]);
-
-// Fetch ratings on component mount
 useEffect(() => {
+  console.log("Image Source:", bikeData.picture);
   const fetchUserDetails = async () => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -227,32 +226,33 @@ useEffect(() => {
     {/* <Navbar></Navbar> */}
     <div className="payment-page">
       {/* Summary Card */}
+      <div className="important-card">
       <div className="summary-card">
         <Card>
           <Card.Header>Summary</Card.Header>
           <div className="bike-details-content">
             <Card.Img
               variant="top"
-              src={watermark}
+              src={`http://localhost:5000/images/${bikeData.picture}`}
               alt="Bike Image"
             />
-            <div className="bike-details-content">
-              <div className="bike-name">{bikeData.brand}</div>
-              <div className="bike-price">
+            <p className="bike-details-content">
+              <p className="bike-name">{bikeData.brand}</p>
+              <p className="bike-price">
                 ₹{Math.ceil(bikeData.price / 24)}/per hour
-              </div>
-              <div>
-                <p>oiuyhxguycyshaiayhuiygfcgghui098uytgfhciuas</p>
-                <p>iouygchsgdigffffffffffffffffffffffffffffff</p>
-                <p>hyudsshavashgasiugfsgajdhsahfaaskha</p>
-              </div>
-            </div>
+              </p>
+              
+            </p>
           </div>
         </Card>
-        {rating && (
+     
+      </div>
+      <div className="rating-card">
+      <Card>
+      {rating && (
                 <div>
                   <ul>
-                  <h1>reviews</h1>
+                  <Card.Header>Reviews</Card.Header>
                     {rating.userEmail.map((email, index) => (
                       <li key={index}>
                         {email}:{rating.description[index]}
@@ -261,6 +261,8 @@ useEffect(() => {
                   </ul>
                 </div>
               )}
+        </Card>
+      </div>
       </div>
       <div className="important-card">
       <div className="date-card">

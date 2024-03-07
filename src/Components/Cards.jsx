@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Row, Col, Card, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Row, Col, Card} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import "./Components.css";
 import { FaStar } from "react-icons/fa";
@@ -53,6 +53,7 @@ function Cards({ user }) {
             console.log(error);
         }
     };
+      
 
     const BookNowClick = async (bikeId, returned) => {
         try {
@@ -131,7 +132,7 @@ function Cards({ user }) {
             <Row md={3} xs={1} className="card-container">
                 {bikes.map((bike) => (
                     <Col md={3} key={bike._id} >
-                        <Card className={`card ${!bike.returned ? "not-returned" : ""} card`}>
+                    <Card className={`card ${!bike.returned ? "not-returned" : ""} card`}>
                             <Card.Img
                                 variant="top"
                                 src={`http://localhost:5000/images/${bike.picture}`}
@@ -158,14 +159,15 @@ function Cards({ user }) {
                                             Book Now
                                         </Button>
                                     </span>
+                                    <div className="card-rating">
+                               {getRatingForBike(bike._id)}
+                            </div>
                                     <Button variant="primary" className="add-to-cart" onClick={() => addToCart(bike._id)} disabled={!bike.returned} >
                                         Add to Cart
                                     </Button>
                                 </div>
                             </Card.Body>
-                            <div className="card-rating">
-                                Rating: {getRatingForBike(bike._id)}
-                            </div>
+                          
                         </Card>
                     </Col>
                 ))}

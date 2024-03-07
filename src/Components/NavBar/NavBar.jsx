@@ -76,7 +76,6 @@ function Navbar({ userc }) {
     setOpenProfile(false);
     navigate("/");
   };
-
   return (
     <div style={{ position: "relative" }}>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -139,6 +138,7 @@ function Navbar({ userc }) {
               {openProfile && <DropDown onLogout={handleLogout} userEmail={user.email} />}
             </div>
               ) : (
+                
                 <Link className={items.className} to={items.route}>
                   <i className={items.icon}></i>
                   {items.title}
@@ -147,20 +147,22 @@ function Navbar({ userc }) {
             </li>
           ))}
           {/* Cart icon */}
-          <li>
-            <Link to="/cart" style={{ textDecoration: "none" }}>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <IoCart className="cart-logo" />
-                <span className="cart-badge">{cartCount}</span>
-              </div>
-            </Link>
-          </li>
+          {user && (
+            <li>
+              <Link to="/cart" style={{ textDecoration: "none" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <IoCart className="cart-logo" />
+                  <span className="cart-badge">{cartCount}</span>
+                </div>
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
     </div>

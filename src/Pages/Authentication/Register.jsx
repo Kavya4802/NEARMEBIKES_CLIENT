@@ -175,9 +175,16 @@ function Register() {
                 <div className="register-pop-up">
                     <h1>Register</h1>
                     <label>Name:</label>
-                    <input type="text" onChange={(e) => setName(e.target.value)} />
+                    <input type="text" onChange={(e) => setName(e.target.value)}   rules={[{ required: true, message: "Please enter your name" },
+                {
+                  pattern: /^[a-zA-Z]+$/,
+                  message: "Name must contain only letters",
+                },]} />
                     <label>Email:</label>
-                    <input type="text" onChange={(e) => setEmail(e.target.value)} />
+                    <input type="text" onChange={(e) => setEmail(e.target.value)}   rules={[
+                    { required: true, message: "Please enter a valid email address" },
+                    { type: "email", message: "Please enter a valid email address" },
+                  ]}/>
                     <label>Password:</label>
                     <input type="password" onChange={(e) => setPwd(e.target.value)} />
                     <label>Number:</label>

@@ -314,3 +314,13 @@
     transition: all 0.3s ease;
   }
 }
+.card.not-returned .book-now-button,
+.card.not-returned .add-to-cart {
+  pointer-events: none; /* Disable button interactions */
+  opacity: 0.5; /* Reduce opacity for a visual indication that the button is disabled */
+}
+
+.card.not-returned .book-now-button:hover,
+.card.not-returned .add-to-cart:hover {
+  cursor: not-allowed; /* Change cursor on hover to indicate that the button is disabled */
+}
