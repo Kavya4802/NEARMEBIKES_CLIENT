@@ -125,15 +125,6 @@
 
 }
 
-.orders-page {
-  top: 100px;
-  width: 100%;
-  height: fit-content;
-  overflow: auto hidden;
-  border-collapse: collapse;
-    margin-bottom: 20px;
-    font-size: 15px;;
-}
 
 .no-orders-message {
     font-style: italic;
@@ -144,14 +135,7 @@
     padding: 0;
 }
 
-.order-item {
-    margin-bottom: 20px;
-    padding: 10px;
-    margin-top: 15%;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
+
 .order-item img{
   width: 10%;
   height: 100%;

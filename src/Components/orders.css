@@ -1,0 +1,138 @@
+.orders-parent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Define some variables for colors and fonts */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --font-family: Arial, sans-serif;
+  }
+  
+  /* Style the body element */
+  body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style the navbar element */
+  
+.orders-page {
+    top: 100px;
+    width: 100%;
+    height: fit-content;
+    overflow: auto hidden;
+    border-collapse: collapse;
+      margin-bottom: 20px;
+      font-size: 15px;
+  }
+  
+  .orders-page h2 {
+    text-align: center;
+    margin-top: 100px;
+  }
+  
+  /* Style the no-orders-message element */
+  .no-orders-message {
+    text-align: center;
+    font-style: italic;
+    color: var(--secondary-color);
+  }
+  
+  /* Style the orders-container element */
+  .orders-container {
+    width: 100%;
+   
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+  /* Style the order-details element */
+  .order-details {
+    padding: 10px;
+    background-color: var(--light-color);
+  }
+  
+  /* Style the order-details paragraphs */
+  .order-details p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--dark-color);
+  }
+  
+  /* Style the order-image element */
+  .order-image {
+    position: relative;
+    height: 200px;
+  }
+  
+  /* Style the order-image image */
+  .order-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Style the star-rating element */
+  .star-rating {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  /* Style the invoice button */
+  .invoice-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  /* Use media queries to make the page responsive */
+  @media only screen and (max-width: 768px) {
+    /* Reduce the font size on smaller screens */
+    body {
+      font-size: 16px;
+    }
+  
+    /* Change the order of the order-details and order-image elements */
+    .order-item {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .order-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+  }
+  

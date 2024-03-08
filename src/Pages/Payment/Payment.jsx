@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import "./Payment.css";
 import Navbar from "../../Components/NavBar/NavBar";
 // import DatePicker from "react-datepicker";
+import Footer from "../../Components/Footer/Footer";
 import { Card } from 'react-bootstrap'; 
 import { useParams } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
@@ -223,14 +224,17 @@ useEffect(() => {
     <div>
     <Navbar />
     <div className="payment-parent">
-    {/* <Navbar></Navbar> */}
-    <div className="payment-page">
-      {/* Summary Card */}
-      <div className="important-card">
+   
+    
+  
+      
       <div className="summary-card">
-        <Card>
-          <Card.Header>Summary</Card.Header>
+        <Card >
+        <Card.Header style={{backgroundColor:"#ff8400"}}>
+        <h1 style={{fontSize:"35px"}}>Summary</h1> </Card.Header>
+        <div className="bike-date">
           <div className="bike-details-content">
+       
             <Card.Img
               variant="top"
               src={`http://localhost:5000/images/${bikeData.picture}`}
@@ -244,39 +248,15 @@ useEffect(() => {
               
             </p>
           </div>
-        </Card>
-     
-      </div>
-      <div className="rating-card">
-      <Card>
-      {rating && (
-                <div>
-                  <ul>
-                  <Card.Header>Reviews</Card.Header>
-                    {rating.userEmail.map((email, index) => (
-                      <li key={index}>
-                        {email}:{rating.description[index]}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-        </Card>
-      </div>
-      </div>
-      <div className="important-card">
-      <div className="date-card">
-  <Card>
-    <Card.Header>Date Selection</Card.Header>
-    <div className="date-section">
-      <div className="form-input">
+          <div className="date-section">
+           <div className="form-input">
         <label>Start Date & Time:</label>
         <Datetime
           value={startDate}
           inputProps={{ placeholder: "START DATE&TIME" }}
           dateFormat="DD/MM/YYYY"
           onChange={handleDateChange}
-          // Set minDate to today
+         
           isValidDate={(current) => current.isSameOrAfter(Datetime.moment(), 'day')}
         />
       </div>
@@ -287,56 +267,56 @@ useEffect(() => {
           inputProps={{ placeholder: "END DATE&TIME" }}
           onChange={endDateChange}
           dateFormat="DD/MM/YYYY"
-          // Set minDate to today
+         
           isValidDate={(current) => current.isSameOrAfter(Datetime.moment(), 'day')}
         />
       </div>
+      </div>
     </div>
     
-  </Card>
-</div>
-
-        {/* Checkout Card */}
-        <div className="checkout-card">
-          <Card>
+        </Card>
+        </div>
+          <Card className="checkout-card">
             <Card.Body>
-              <Card.Header className="checkout-card-header">
-                Checkout
-              </Card.Header>
+              <Card.Header className="checkout-card-header" style={{backgroundColor:"#ff8400"}}>
+               <h1 style={{fontSize:"35px"}}> Checkout</h1>
+              </Card.Header><br></br>
+              <br></br>
               <Card.Text className="checkout-card-text">
-                Booking by: {user && user.name}
-              </Card.Text>
+                <b>Booking by</b>: {user && user.name}
+              </Card.Text><br></br>
               <Card.Text className="checkout-card-text">
-                Email: {user && user.email}
-              </Card.Text>
+                <b>Email</b>: {user && user.email}
+              </Card.Text><br></br>
               <Card.Text className="checkout-card-text">
-                Bike Brand: {bikeData.brand}
-              </Card.Text>
+                <b>Bike Brand</b>: {bikeData.brand}
+              </Card.Text><br></br>
              
               <Card.Text className="checkout-card-text">
                 <pre
                   style={{
                     display: "inline",
-                    fontSize: "18px",
-                    fontWeight: "bold",
+                    
                   }}
                 >
-                  ₹
+                 <b>₹</b>
                 </pre>
                 {Math.ceil(bikeData.price / 24)}/per hour
-              </Card.Text>
+              </Card.Text><br></br>
 
               <Card.Text className="checkout-card-text">
-                <span>₹</span>
+              <b>₹</b>
                 {calculateTotalPrice().totalPrice}/ Total
+                <br></br>
+                <br></br>
                 <p>
-                  You booked the bike for{" "}
+                  <b>You booked the bike for </b>{" "}
                   {calculateTotalPrice().durationInHours} hrs
                 </p>
                 {calculateTotalPrice().durationInHours < 12
                   ? " (Minimum 12hr booking required)"
                   : ""}
-              </Card.Text>
+              </Card.Text><br></br>
 
               <Button
                 variant="primary"
@@ -344,10 +324,10 @@ useEffect(() => {
                 onClick={() => setShowTermsPopup(true)}
               >
                 Pay Now
-              </Button>
+              </Button><br></br>
             </Card.Body>
           </Card>
-        </div>
+        
         {showTermsPopup && (
         <div className="popup-overlay">
           <div className="popup-content">
@@ -360,9 +340,10 @@ useEffect(() => {
                   onChange={handleAcceptTermsChange}
                 />
                 I accept the Terms and Conditions
-              </label>
+              </label><br></br>
             </div>
             <div className="button-container">
+            <br></br>
               <button
                 className={`proceed-button ${acceptTerms ? "green" : "grey"}`}
                 onClick={() => {
@@ -387,6 +368,8 @@ useEffect(() => {
             {/* Your Congratulations popup content */}
             <h2>Congratulations!</h2>
             <p>Your order has been successfully placed.</p>
+            <br></br>
+            <br></br>
             <Link
               to={`/orders/${encodeURIComponent(user.email)}`}
               className="close-button"
@@ -396,11 +379,32 @@ useEffect(() => {
             </Link>
           </div>
         </div>
+        
       )}
       </div>
+      <div className="rating-card">
+      <Card className="rate-card">
+      {rating && (
+                <div>
+                  <ul>
+                  <Card.Header style={{backgroundColor:"#ff8400"}}>
+                  <h1 style={{fontSize:"35px"}}>Reviews </h1></Card.Header>
+                  <br></br>
+                  <br></br>
+                    {rating.userEmail.map((email, index) => (
+                      <li key={index} className="review-item">
+                      <b>  {email}</b>:{rating.description[index]}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+        </Card>
       </div>
-       </div>
-       </div>
+      <Footer />
+      </div>
+      
+      
   );
       }
 export default Payment;

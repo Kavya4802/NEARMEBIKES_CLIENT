@@ -6,7 +6,10 @@ function Dashboard () {
   return (
     <>
        <AdminNavbar></AdminNavbar>
+       <div>
        <Footer></Footer>
+       </div>
+       
     </>    
   );
 };

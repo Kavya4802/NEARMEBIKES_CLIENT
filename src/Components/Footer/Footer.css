@@ -45,3 +45,8 @@
 .social-footer h2{
    text-decoration: underline;
 }
+@media (max-width: 768px) {
+   .other-media a{
+      font-size: small;
+   }
+}

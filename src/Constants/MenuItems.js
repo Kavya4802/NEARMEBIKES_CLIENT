@@ -12,10 +12,10 @@ export const Menuitems = [
         route: "/about"
     },
     {
-        title: "Signup",
+        title: "Signin",
         className: "nav-links",
         icon: "fa-solid fa-user",
-        route: "/register"
+        route: "/login"
     }
 ]
 export default Menuitems;
